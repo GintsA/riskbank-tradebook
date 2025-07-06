@@ -21,8 +21,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">Project - RiskBank TradeBook</h1>
-      <p>Welcome, {user.email}</p>
+      <div className="button-container">
+        <button className="main-button" disabled>
+          Trade entry
+        </button>
+      </div>
     </div>
   );
 }

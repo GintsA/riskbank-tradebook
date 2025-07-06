@@ -7,12 +7,6 @@
   text-align: center;
 }
 
-.title {
-  font-size: 2.5rem;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -31,4 +25,29 @@ button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   cursor: pointer;
+}
+
+/* Main menu button styles */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-button {
+  background-color: #c9b812;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  margin: 1rem 0;
+  width: 50%;
+  max-width: 250px;
+}
+
+.main-button:active {
+  background-color: #e3d850;
+  box-shadow: none;
 }
