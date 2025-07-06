@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/riskbank-tradebook/static/css/main.3fa2be9e.css",
-    "main.js": "/riskbank-tradebook/static/js/main.9bb5b6a7.js",
+    "main.css": "/riskbank-tradebook/static/css/main.c3730b4c.css",
+    "main.js": "/riskbank-tradebook/static/js/main.650e96a5.js",
     "static/js/453.911b1cc0.chunk.js": "/riskbank-tradebook/static/js/453.911b1cc0.chunk.js",
     "index.html": "/riskbank-tradebook/index.html",
-    "main.3fa2be9e.css.map": "/riskbank-tradebook/static/css/main.3fa2be9e.css.map",
-    "main.9bb5b6a7.js.map": "/riskbank-tradebook/static/js/main.9bb5b6a7.js.map",
+    "main.c3730b4c.css.map": "/riskbank-tradebook/static/css/main.c3730b4c.css.map",
+    "main.650e96a5.js.map": "/riskbank-tradebook/static/js/main.650e96a5.js.map",
     "453.911b1cc0.chunk.js.map": "/riskbank-tradebook/static/js/453.911b1cc0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3fa2be9e.css",
-    "static/js/main.9bb5b6a7.js"
+    "static/css/main.c3730b4c.css",
+    "static/js/main.650e96a5.js"
   ]
 }
