@@ -52,3 +52,12 @@ button {
   background-color: #dbcf2f;
   box-shadow: none;
 }
+
+.profile-button {
+  background-color: transparent;
+  border: 3px solid #c9b812;
+}
+
+.profile-button:active {
+  background-color: #c9b71220;
+}

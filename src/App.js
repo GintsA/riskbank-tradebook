@@ -25,6 +25,9 @@ function App() {
         <button className="main-button" disabled>
           Trade entry
         </button>
+        <button className="main-button profile-button" disabled>
+          Trader's profile
+        </button>
       </div>
     </div>
   );
