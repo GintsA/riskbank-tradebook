@@ -3,9 +3,11 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import Login from './Login';
 import './App.css';
+import TraderProfile from './components/TraderProfile';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [showProfile, setShowProfile] = useState(false);
 
   useEffect(() => {
     // Check login state on app load
@@ -25,9 +27,10 @@ function App() {
         <button className="main-button" disabled>
           Trade entry
         </button>
-        <button className="main-button profile-button" disabled>
+        <button onClick={() => setShowProfile(true)}>
           Trader's profile
         </button>
+        {showProfile && <TraderProfile />}
       </div>
     </div>
   );
