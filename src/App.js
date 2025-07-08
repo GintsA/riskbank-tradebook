@@ -7,7 +7,6 @@ import TraderProfile from './components/TraderProfile';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [showProfile, setShowProfile] = useState(false);
 
   useEffect(() => {
     // Check login state on app load
@@ -23,14 +22,11 @@ function App() {
 
   return (
     <div className="App">
+      <TraderProfile user={user} />
       <div className="button-container">
         <button className="main-button" disabled>
           Trade entry
         </button>
-        <button onClick={() => setShowProfile(true)}>
-          Trader's profile
-        </button>
-        {showProfile && <TraderProfile />}
       </div>
     </div>
   );
