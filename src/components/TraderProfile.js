@@ -118,47 +118,51 @@ function TraderProfile({ user }) {
 
   if (editing) {
     return (
-      <div className="profile-editor">
-        <h2>Trader Profile</h2>
-        <input
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-          placeholder="Username"
-        />
-        <select
-          name="experienceLevel"
-          value={form.experienceLevel}
-          onChange={handleChange}
-        >
-          {experienceOptions.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
-        <input
-          type="number"
-          name="wins"
-          value={form.wins}
-          onChange={handleChange}
-          placeholder="Wins"
-        />
-        <input
-          type="number"
-          name="losses"
-          value={form.losses}
-          onChange={handleChange}
-          placeholder="Losses"
-        />
-        <input
-          type="number"
-          name="accountSize"
-          value={form.accountSize}
-          onChange={handleChange}
-          placeholder="Account Size"
-        />
-        <button onClick={handleSave}>Save</button>
+      <div className="profile-form-wrapper">
+        <h2 className="profile-form-title">Trader Profile</h2>
+        <form className="profile-form">
+          <input
+            name="username"
+            value={form.username}
+            onChange={handleChange}
+            placeholder="Username"
+          />
+          <select
+            name="experienceLevel"
+            value={form.experienceLevel}
+            onChange={handleChange}
+          >
+            {experienceOptions.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+          <input
+            type="number"
+            name="wins"
+            value={form.wins}
+            onChange={handleChange}
+            placeholder="Wins"
+          />
+          <input
+            type="number"
+            name="losses"
+            value={form.losses}
+            onChange={handleChange}
+            placeholder="Losses"
+          />
+          <input
+            type="number"
+            name="accountSize"
+            value={form.accountSize}
+            onChange={handleChange}
+            placeholder="Account Size"
+          />
+          <button className="save-button" type="button" onClick={handleSave}>
+            Save
+          </button>
+        </form>
       </div>
     );
   }
