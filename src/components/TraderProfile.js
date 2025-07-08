@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import './TraderProfile.css';
@@ -40,20 +40,20 @@ function TraderProfile({ user }) {
     accountSize: '',
   });
 
-  useEffect(() => {
-    if (user) {
-      loadProfile();
-    }
-  }, [user]);
-
-  const loadProfile = async () => {
+  const loadProfile = useCallback(async () => {
     const ref = doc(db, 'traderProfiles', user.uid);
     const snap = await getDoc(ref);
     if (snap.exists()) {
       setProfile(snap.data());
     }
     setLoading(false);
-  };
+  }, [user]);
+
+  useEffect(() => {
+    if (user) {
+      loadProfile();
+    }
+  }, [user, loadProfile]);
 
   const startCreate = () => {
     setForm({
@@ -166,13 +166,15 @@ function TraderProfile({ user }) {
   if (profile) {
     return (
       <div className="profile-card">
-        <button className="manage-button" onClick={startEdit}>
-          Manage Profile
-        </button>
-        <h2 style={{ textAlign: 'center' }}>Trader's Profile</h2>
+        <div className="profile-header">
+          <h2 className="profile-title">Trader's Profile</h2>
+          <button className="edit-button" onClick={startEdit}>
+            Manage Profile
+          </button>
+        </div>
 
         <div className="profile-section">
-          <h3>Identity</h3>
+          <div className="section-label">Identity</div>
           <p>
             <strong>Username:</strong> {profile.username}
           </p>
@@ -182,7 +184,7 @@ function TraderProfile({ user }) {
         </div>
 
         <div className="profile-section">
-          <h3>Performance</h3>
+          <div className="section-label">Performance</div>
           <p>
             <strong>Wins:</strong> {profile.wins}
           </p>
@@ -195,7 +197,7 @@ function TraderProfile({ user }) {
         </div>
 
         <div className="profile-section">
-          <h3>Risk Management</h3>
+          <div className="section-label">Risk Management</div>
           <p>
             <strong>Account Size:</strong> {profile.accountSize.toFixed(2)}
           </p>
