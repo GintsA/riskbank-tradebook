@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import './TraderProfile.css';
 
 const experienceWeights = {
   Wanderer: 0,
@@ -164,20 +165,51 @@ function TraderProfile({ user }) {
 
   if (profile) {
     return (
-      <div className="profile-display">
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <h2>Trader's Profile</h2>
-          <button onClick={startEdit}>Manage Profile</button>
+      <div className="profile-card">
+        <button className="manage-button" onClick={startEdit}>
+          Manage Profile
+        </button>
+        <h2 style={{ textAlign: 'center' }}>Trader's Profile</h2>
+
+        <div className="profile-section">
+          <h3>Identity</h3>
+          <p>
+            <strong>Username:</strong> {profile.username}
+          </p>
+          <p>
+            <strong>Experience Level:</strong> {profile.experienceLevel}
+          </p>
         </div>
-        <p><strong>Username:</strong> {profile.username}</p>
-        <p><strong>Experience:</strong> {profile.experienceLevel}</p>
-        <p><strong>Wins:</strong> {profile.wins}</p>
-        <p><strong>Losses:</strong> {profile.losses}</p>
-        <p><strong>Performance:</strong> {profile.performanceMetric}</p>
-        <p><strong>Account Size:</strong> {profile.accountSize}</p>
-        <p><strong>Risk Bag:</strong> {profile.riskBag}</p>
-        <p><strong>Safe Account:</strong> {profile.safeAccount}</p>
-        <p><strong>Risk Allowance for Next Trade:</strong> {profile.riskAllowance}</p>
+
+        <div className="profile-section">
+          <h3>Performance</h3>
+          <p>
+            <strong>Wins:</strong> {profile.wins}
+          </p>
+          <p>
+            <strong>Losses:</strong> {profile.losses}
+          </p>
+          <p>
+            <strong>Performance Metric:</strong> {profile.performanceMetric}
+          </p>
+        </div>
+
+        <div className="profile-section">
+          <h3>Risk Management</h3>
+          <p>
+            <strong>Account Size:</strong> {profile.accountSize.toFixed(2)}
+          </p>
+          <p>
+            <strong>Risk Bag:</strong> {profile.riskBag.toFixed(2)}
+          </p>
+          <p>
+            <strong>Safe Account:</strong> {profile.safeAccount.toFixed(2)}
+          </p>
+          <p>
+            <strong>Risk Allowance for Next Trade:</strong>{' '}
+            {profile.riskAllowance.toFixed(2)}
+          </p>
+        </div>
       </div>
     );
   }
