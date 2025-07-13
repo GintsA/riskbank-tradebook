@@ -41,8 +41,9 @@ function TraderProfile({ user }) {
   });
 
   const loadProfile = useCallback(async () => {
-    const ref = doc(db, 'traderProfiles', user.uid);
-    const snap = await getDoc(ref);
+     // Profiles are stored in the `traderProfiles` collection keyed by UID
+      const ref = doc(db, 'traderProfiles', user.uid);
+      const snap = await getDoc(ref);
     if (snap.exists()) {
       setProfile(snap.data());
     }
